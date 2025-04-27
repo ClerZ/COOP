@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "category": "Books",
+        "name": "Essential Of Purposive Communication",
+        "image": "book1.png",
+        "author": "by Arcadia L. Casanova",
+        "price": 425
+    },
+    {
+        "id": 2,
+        "category": "Books",
+        "name": "Foundations Of Operations Management",
+        "image": "book2.png",
+        "author": "by Jay Heizer, Jeff Madura, E. Flores",
+        "price": 425
+    },
+    {
+        "id": 3,
+        "category": "Books",
+        "name": "Modern Physics",
+        "image": "book3.png",
+        "author": "by Serway, Moses, Moyer",
+        "price": 425
+    },
+    {
+        "id": 4,
+        "category": "Books",
+        "name": "Web Applications Using PHP & MySQL",
+        "image": "book4.png",
+        "author": "by Holzner, L.E. Bautista",
+        "price": 425
+    },
+    {
+        "id": 5,
+        "category": "Uniforms",
+        "name": "NSTP Shirt",
+        "image": "book5.png",
+        "sizes": ["ES", "S", "M", "L", "EL"],
+        "price": 425
+    },
+    {
+        "id": 6,
+        "category": "Uniforms",
+        "name": "Naval Shirt",
+        "image": "book6.png",
+        "sizes": ["ES", "S", "M", "L", "EL"],
+        "price": 425
+    },
+    {
+        "id": 7,
+        "category": "Uniforms",
+        "name": "Tourism Uniform",
+        "image": "book7.png",
+        "sizes": ["ES", "S", "M", "L", "EL"],
+        "price": 425
+    },
+    {
+        "id": 8,
+        "category": "Uniforms",
+        "name": "PE Uniform",
+        "image": "book8.png",
+        "sizes": ["ES", "S", "M", "L", "EL"],
+        "price": 425
+    }
+]

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMAK COOP - Register</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='register.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <header class="nav-bar">
+        <div class="nav-left">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="nav-logo">
+            <h1 class="nav-title">UMAK COOP</h1>
+        </div>
+        <div class="nav-right">
+          <a href="{{ url_for('index') }}" class="nav-link" >HOME</a>
+          <a href="{{ url_for('products') }}" class="nav-link">PRODUCT</a>
+          <a href="#" class="nav-link">ABOUT</a>
+          <a href="#" class="nav-link">CONTACT US</a>
+        </div>
+        <div class="far-right">
+            <img src="{{ url_for('static', filename='img/User.svg') }}" alt="Icon 1" class="icon">
+            <img src="{{ url_for('static', filename='img/Basket.svg') }}" alt="Icon 2" class="icon">
+            <div class="hamburger">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="login-wrapper">
+            <div class="login-box">
+                <div class="register-label" style="text-align: center;">
+                    <h2 style="text-align: center;">Create an account</h2>
+                    <p class="already-account">
+                        Already have an account? <a href="{{ url_for('login') }}">Log in</a>
+                    </p>
+                </div>
+
+                <form action="/register/" method="post">
+                    <div class="name-fields">
+                        <div class="form-group">
+                            <br>
+                            <label for="firstName">*First name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="middleName">Middle name (as applicable)</label>
+                            <input type="text" id="middleName" name="middleName">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">*Last name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="birthdate">What's your date of birth?</label>
+                        <input type="text" id="birthdate" name="birthdate" placeholder="Select your birthdate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+
+                    <div class="form-group password-toggle">
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding-right: 10px;">
+                            <label for="password">Password</label>
+                            <span class="toggle-password-inner" onclick="togglePassword('password', this)" style="cursor: pointer; display: flex; align-items: center; gap: 5px;">
+                                <img src="{{ url_for('static', filename='img/icon.png') }}" class="hide-icon" style="width: 20px; height: auto;">
+                                <span class="toggle-text">show</span>
+                            </span>
+                        </div>
+                        <input type="password" id="password" name="password">
+                    </div>
+                    <div class="password-requirements-container">
+                        <div class="password-requirements two-per-row">
+                            <ul>
+                                <li>Use 8 or more characters</li>
+                                <li>Use upper and lower case letters</li>
+                                <li>Use a number (e.g. 1234)</li>
+                                <li>Use a symbol (e.g. !@#$)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-group password-toggle">
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding-right: 10px;">
+                            <label for="confirmPassword">Confirm password</label>
+                            <span class="toggle-password-inner" onclick="togglePassword('confirmPassword', this)" style="cursor: pointer; display: flex; align-items: center; gap: 5px;">
+                                <img src="{{ url_for('static', filename='img/icon.png') }}" class="hide-icon" style="width: 20px; height: 20px;">
+                                <span class="toggle-text">show</span>
+                            </span>
+                        </div>
+                        <input type="password" id="confirmPassword" name="confirmPassword">
+                    </div>
+                    <div class="error-messages">
+                      {% with messages = get_flashed_messages(category_filter=['error']) %}
+                          {% if messages %}
+                              <ul class="error">
+                              {% for message in messages %}
+                                  <li>{{ message }}</li>
+                              {% endfor %}
+                              </ul>
+                          {% endif %}
+                      {% endwith %}
+                      {% with messages = get_flashed_messages(category_filter=['success']) %}
+                          {% if messages %}
+                              <ul class="success">
+                              {% for message in messages %}
+                                  <li>{{ message }}</li>
+                              {% endfor %}
+                              </ul>
+                          {% endif %}
+                      {% endwith %}
+                  </div>
+                    <div class="signup-container">
+                        <button type="submit" class="signup-button">Sign up</button>
+                        <p class="terms-privacy-text">By creating an account, you agree to the <a href="#">Terms of use</a> and <a href="#">Privacy Policy</a>.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="footer">
+            <div class="footer-left">
+                <div class="footer-title">UMaK COOP</div>
+                <a href="{{ url_for('index') }}" class="footer-link">Home</a>
+                <a href="{{ url_for('products') }}" class="footer-link">Products</a>
+                <a href="#" class="footer-link">About</a>
+                <a href="#" class="footer-link">Contact Us</a>
+            </div>
+
+            <div class="footer-middle">
+                <div class="footer-logo">
+                    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="UMAK COOP Logo"> <div class="footer-title">UMAK COOP</div>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="footer-title">Follow us</div>
+                <div class="follow-us-links">
+                    <a href="#" class="follow-us-link">
+                        <img src="{{ url_for('static', filename='img/facebook.png') }}" alt="Facebook"> UMAK COOP Store
+                    </a>
+                </div>
+                <div class="footer-title" style="margin-top: -10px;">Open Hours</div>
+                <div class="footer-right-label">Monday to Friday</div>
+                <div class="footer-right-label1">8:00 am to 4:30 pm</div>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 UMAK Coop. All rights reserved.
+        </div>
+    </footer>
+      <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        flatpickr("#birthdate", {
+            dateFormat: "Y-m-d",
+            maxDate: "today",
+            altInput: true,
+            altFormat: "F j, Y",
+        });
+
+        function togglePassword(inputId, toggleButton) {
+        const passwordInput = document.getElementById(inputId);
+        const toggleText = toggleButton.querySelector(".toggle-text");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleText.textContent = "hide";
+        } else {
+            passwordInput.type = "password";
+            toggleText.textContent = "show";
+        }
+      }
+
+    </script>
+</body>
+</html>
